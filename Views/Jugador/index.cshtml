@@ -1,0 +1,76 @@
+@model Jugador
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+    <form asp-controller="Jugador" asp-action="Create">
+        <div class="form-group">
+            <label asp-for="Name">Nombre:</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label asp-for="Edad">Edad:</label>
+            <input asp-for="Edad" class="form-control" />
+        </div>
+        <br>
+        <label asp-for="Name">Categoria:</label>
+        <select id="Categoria">
+            <option value="opcion1">Sub17</option>
+            <option value="opcion2">Sub20</option>
+            <option value="opcion3">Mayores</option>
+        </select>
+        <br>
+        <br>
+        <label asp-for="Genero">Genero:</label>
+        <input type="Checkbox" name="Masculino"> Masculino
+        <input type="Checkbox" name="Femenino"> Femenino
+        <p id="resultado"></p>
+        <script>
+        var opcion1 = document.getElementById("Masculino");
+        var opcion2 = document.getElementById("Femenino");
+        var resultado = document.getElementById("resultado");
+
+        opcion1.addEventListener("change", mostrarResultado);
+        opcion2.addEventListener("change", mostrarResultado);
+        
+        function mostrarResultado() {
+            var seleccionadas = [];
+
+            if (opcion1.checked) {
+                seleccionadas.push("Masculino");
+            }
+            if (opcion2.checked) {
+                seleccionadas.push("Femenino");
+            }
+
+        }
+        </script>
+
+        <label asp-for="Equipo">Equipo:</label>
+        <select asp-for="Equipo" class="form-control">
+            <option value="Alianza Lima">Alianza Lima</option>
+            <option value="Universitario">Universitario</option>
+            <option value="Sporting Cristal">Sporting Cristal</option>
+            <option value="Melgar">Melgar</option>
+            <option value="Cienciano">Cienciano</option>
+        </select>
+
+    </script>
+        <br>
+        <br>
+        <div class="form-group">
+        <label asp-for="Temporada">Temporada:</label>
+        <input asp-for="Temporada" class="form-control" />
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+
+    </form>
+    <h1>@ViewData["Message"]</h1>
+</div>
