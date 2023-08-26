@@ -15,6 +15,7 @@ namespace PL1.Models
         public int? Temporada { get; set;}
         public int? TemporadaM { get; set;}
         public decimal? CostoTotal { get; set; }
+        public string? Pregunta { get; set; }
 
     }
 }
